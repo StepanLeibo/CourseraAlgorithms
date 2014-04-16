@@ -1,6 +1,9 @@
-﻿using CA.Algorithms.Data.QuickSort;
+﻿using CA.Algorithms.Data.MergeSort;
+using CA.Algorithms.Data.QuickSort;
+using CA.Algorithms.Implementations.MergeSort;
 using CA.Algorithms.Implementations.QuickSort;
 using Ninject;
+using GetDataFileSystem = CA.Algorithms.Data.QuickSort.GetDataFileSystem;
 
 namespace CA.DI
 {
@@ -20,6 +23,11 @@ namespace CA.DI
             #endregion
 
             #region Merge Sort
+
+            NinjecKernel.Bind<IGetMergeSortData>().To<GetDataFileSystemMS>();
+
+            NinjecKernel.Bind<MergeSort>().ToSelf();
+
             #endregion
         }
     }

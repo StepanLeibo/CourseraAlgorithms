@@ -40,9 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\MergeSort\GetDataFileSystemMS.cs" />
+    <Compile Include="Data\MergeSort\GetSimpleDataHelperMS.cs" />
+    <Compile Include="Data\MergeSort\IGetMergeSortData.cs" />
     <Compile Include="Data\QuickSort\GetDataFileSystem.cs" />
     <Compile Include="Data\QuickSort\GetSimpleDataHelper.cs" />
-    <Compile Include="Data\QuickSort\IGetData.cs" />
+    <Compile Include="Data\QuickSort\IGetQuickSortData.cs" />
+    <Compile Include="Implementations\MergeSort\MergeSort.cs" />
     <Compile Include="Implementations\QuickSort\IPivot.cs" />
     <Compile Include="Implementations\QuickSort\PivotFirstElement.cs" />
     <Compile Include="Implementations\QuickSort\PivotLastElement.cs" />
@@ -51,6 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\MergeSort\IntegerArray.txt" />
     <Content Include="Data\QuickSort\QuickSort.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using CA.Algorithms.Data.MergeSort;
 using CA.Algorithms.Data.QuickSort;
+using CA.Algorithms.Implementations.MergeSort;
 using CA.Algorithms.Implementations.QuickSort;
 using CA.DI;
 using Ninject;
@@ -13,7 +15,8 @@ namespace CA.ConsoleApp
         static readonly DependencyInjection ninj = new DependencyInjection();
         static void Main()
         {
-            QuickSort();
+            //QuickSort();
+            MergeSort();
         }
 
         public static void QuickSort()
@@ -39,6 +42,17 @@ namespace CA.ConsoleApp
 
             Console.WriteLine();
             Console.WriteLine("Exchange counter: {0}", exchCount);
+        }
+
+        private static void MergeSort()
+        {
+            var mergeSort = ninj.NinjecKernel.Get<MergeSort>();
+            var dataManager = ninj.NinjecKernel.Get<IGetMergeSortData>();
+            Int64 inversions = 0;
+
+            mergeSort.MergeSortCount(dataManager.GetDataArray(), ref inversions);
+
+            Console.WriteLine("Inversions count: {0}", inversions);
         }
     }
 }
