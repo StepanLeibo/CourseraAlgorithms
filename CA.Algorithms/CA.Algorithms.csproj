@@ -40,12 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\KargerMinCut\Domain\Edge.cs" />
+    <Compile Include="Data\KargerMinCut\Domain\Graph.cs" />
+    <Compile Include="Data\KargerMinCut\Domain\Vertex.cs" />
+    <Compile Include="Data\KargerMinCut\GetGraphFS.cs" />
+    <Compile Include="Data\KargerMinCut\GetGraphTest.cs" />
+    <Compile Include="Data\KargerMinCut\IGetGraph.cs" />
     <Compile Include="Data\MergeSort\GetDataFileSystemMS.cs" />
     <Compile Include="Data\MergeSort\GetSimpleDataHelperMS.cs" />
     <Compile Include="Data\MergeSort\IGetMergeSortData.cs" />
     <Compile Include="Data\QuickSort\GetDataFileSystem.cs" />
     <Compile Include="Data\QuickSort\GetSimpleDataHelper.cs" />
     <Compile Include="Data\QuickSort\IGetQuickSortData.cs" />
+    <Compile Include="Implementations\KargerMinKut\IKargerMinCut.cs" />
+    <Compile Include="Implementations\KargerMinKut\KargerMinCut.cs" />
     <Compile Include="Implementations\MergeSort\MergeSort.cs" />
     <Compile Include="Implementations\QuickSort\IPivot.cs" />
     <Compile Include="Implementations\QuickSort\PivotFirstElement.cs" />
@@ -55,6 +63,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\KargerMinCut\kargerMinCut.txt" />
     <Content Include="Data\MergeSort\IntegerArray.txt" />
     <Content Include="Data\QuickSort\QuickSort.txt" />
   </ItemGroup>
