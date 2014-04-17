@@ -4,6 +4,6 @@ namespace CA.Algorithms.Implementations.KargerMinKut
 {
     public interface IKargerMinCut
     {
-        int MinCut(Graph graph);
+        int MinCut(GraphKmc graph);
     }
 }

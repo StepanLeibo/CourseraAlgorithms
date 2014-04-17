@@ -5,59 +5,59 @@ namespace CA.Algorithms.Data.KargerMinCut
 {
     public class GetGraphTest : IGetGraphKarger
     {
-        public Graph GetGraph()
+        public GraphKmc GetGraph()
         {
-            var graph = new Graph
+            var graph = new GraphKmc
                               {
                                   Vertices = {1, 2, 3, 4},
-                                  Edges = new List<Edge>
+                                  Edges = new List<EdgeKmc>
                                               {
-                                                  new Edge
+                                                  new EdgeKmc
                                                       {
                                                           StartPoint = 1,
                                                           EndPoint = 2
                                                       },
-                                                      new Edge
+                                                      new EdgeKmc
                                                       {
                                                           StartPoint = 2,
                                                           EndPoint = 1
                                                       },
-                                                  new Edge
+                                                  new EdgeKmc
                                                       {
                                                           StartPoint = 1,
                                                           EndPoint = 3
                                                       },
-                                                      new Edge
+                                                      new EdgeKmc
                                                       {
                                                           StartPoint = 3,
                                                           EndPoint = 1
                                                       },
-                                                  new Edge
+                                                  new EdgeKmc
                                                       {
                                                           StartPoint = 2,
                                                           EndPoint = 4
                                                       },
-                                                      new Edge
+                                                      new EdgeKmc
                                                       {
                                                           StartPoint = 4,
                                                           EndPoint = 2
                                                       },
-                                                  new Edge
+                                                  new EdgeKmc
                                                       {
                                                           StartPoint = 2,
                                                           EndPoint = 3
                                                       },
-                                                      new Edge
+                                                      new EdgeKmc
                                                       {
                                                           StartPoint = 3,
                                                           EndPoint = 2
                                                       },
-                                                  new Edge
+                                                  new EdgeKmc
                                                       {
                                                           StartPoint = 3,
                                                           EndPoint = 4
                                                       },
-                                                      new Edge
+                                                      new EdgeKmc
                                                       {
                                                           StartPoint = 4,
                                                           EndPoint = 3

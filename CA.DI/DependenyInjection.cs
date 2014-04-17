@@ -1,9 +1,11 @@
 ﻿using CA.Algorithms.Data.KargerMinCut;
 using CA.Algorithms.Data.MergeSort;
 using CA.Algorithms.Data.QuickSort;
+using CA.Algorithms.Data.ShortestPathDijkstra;
 using CA.Algorithms.Implementations.MergeSort;
 using CA.Algorithms.Implementations.QuickSort;
 using CA.Algorithms.Implementations.KargerMinKut;
+using CA.Algorithms.Implementations.ShortestPathDijkstra;
 using Ninject;
 using GetDataFileSystem = CA.Algorithms.Data.QuickSort.GetDataFileSystem;
 
@@ -37,6 +39,14 @@ namespace CA.DI
             NinjectKernel.Bind<IGetGraphKarger>().To<GetGraphFS>();
 
             NinjectKernel.Bind<IKargerMinCut>().To<KargerMinCut>();
+
+            #endregion
+
+            #region Dijkstra shortest path
+
+            NinjectKernel.Bind<IGetListVertexes>().To<GetListVertecesFS>();
+
+            NinjectKernel.Bind<Dijkstra>().ToSelf();
 
             #endregion
         }

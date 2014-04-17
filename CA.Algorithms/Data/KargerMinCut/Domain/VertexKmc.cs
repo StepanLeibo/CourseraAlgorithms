@@ -3,24 +3,24 @@ using System.Collections.Generic;
 
 namespace CA.Algorithms.Data.KargerMinCut.Domain
 {
-    public class Vertex : ICloneable
+    public class VertexKmc : ICloneable
     {
         public int ID { get; set; }
-        public List<Edge> Edges { get; set; }
+        public List<EdgeKmc> Edges { get; set; }
         public List<int> SubVertexes { get; set; }
 
-        public Vertex()
+        public VertexKmc()
         {
-            Edges = new List<Edge>();
+            Edges = new List<EdgeKmc>();
             SubVertexes = new List<int>();
         }
 
         public object Clone()
         {
-            return new Vertex
+            return new VertexKmc
                        {
                            ID = ID,
-                           Edges = new List<Edge>(Edges),
+                           Edges = new List<EdgeKmc>(Edges),
                            SubVertexes = new List<int>(SubVertexes)
                        };
         }

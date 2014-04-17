@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using CA.Algorithms.Data.KargerMinCut;
 using CA.Algorithms.Data.KargerMinCut.Domain;
 using CA.Algorithms.Data.MergeSort;
 using CA.Algorithms.Data.QuickSort;
+using CA.Algorithms.Data.ShortestPathDijkstra;
 using CA.Algorithms.Implementations.KargerMinKut;
 using CA.Algorithms.Implementations.MergeSort;
 using CA.Algorithms.Implementations.QuickSort;
+using CA.Algorithms.Implementations.ShortestPathDijkstra;
 using CA.DI;
 using Ninject;
 using Ninject.Parameters;
@@ -21,9 +24,10 @@ namespace CA.ConsoleApp
         {
             //QuickSort();
             //MergeSort();
-            KargerMinCut();
+            //KargerMinCut();
+            DijkstraShortestPath();
         }
-        
+
         public static void QuickSort()
         {
             var dataManager = ninj.NinjectKernel.Get<IGetQuickSortData>();
@@ -83,18 +87,33 @@ namespace CA.ConsoleApp
             Console.WriteLine(min);
         }
 
-        private static void PrintGraph(Graph graph)
+        private static void PrintGraph(GraphKmc graph)
         {
             foreach (var vertex in graph.Vertices)
             {
-                System.Console.Write(string.Format("{0} ", vertex));
+                Console.Write("{0} ", vertex);
                 foreach (var edge in graph.Edges)
                 {
                     if (edge.StartPoint == vertex)
-                        System.Console.Write(string.Format("{0} ", edge.EndPoint));
+                        Console.Write("{0} ", edge.EndPoint);
                 }
 
-                System.Console.WriteLine();
+                Console.WriteLine();
+            }
+        }
+
+        private static void DijkstraShortestPath()
+        {
+            var dataManager = ninj.NinjectKernel.Get<IGetListVertexes>();
+            var dijkstraShortPath = ninj.NinjectKernel.Get<Dijkstra>();
+
+            var path = dijkstraShortPath.Agorithm(dataManager.GetVerteces(), 1);
+            var verArray = new[] {7, 37, 59, 82, 99, 115, 133, 165, 188, 197};
+            
+            for (var i = 0; i < path.Length; i++)
+            {
+                if(verArray.Contains(i))
+                    Console.WriteLine("{0}:{1}", i, path[i]);
             }
         }
     }

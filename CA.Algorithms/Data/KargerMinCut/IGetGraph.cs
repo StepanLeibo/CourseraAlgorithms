@@ -4,6 +4,6 @@ namespace CA.Algorithms.Data.KargerMinCut
 {
     public interface IGetGraphKarger
     {
-        Graph GetGraph();
+        GraphKmc GetGraph();
     }
 }

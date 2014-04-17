@@ -5,9 +5,9 @@ namespace CA.Algorithms.Data.KargerMinCut
 {
     public class GetGraphFS:IGetGraphKarger
     {
-        public Graph GetGraph()
+        public GraphKmc GetGraph()
         {
-            var graph = new Graph();
+            var graph = new GraphKmc();
 
             using (TextReader reader = File.OpenText(@"..\..\..\CA.Algorithms\Data\KargerMinCut\kargerMinCut.txt"))
             {
@@ -27,7 +27,7 @@ namespace CA.Algorithms.Data.KargerMinCut
                             int endpoint;
                             if(int.TryParse(splited[c], out endpoint))
                             {
-                                graph.Edges.Add(new Edge
+                                graph.Edges.Add(new EdgeKmc
                                                     {
                                                         StartPoint = vertex,
                                                         EndPoint = endpoint
