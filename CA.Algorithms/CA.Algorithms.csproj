@@ -57,6 +57,17 @@
     <Compile Include="Data\ShortestPathDijkstra\GetListVertecesFS.cs" />
     <Compile Include="Data\ShortestPathDijkstra\GetListVertecesTest.cs" />
     <Compile Include="Data\ShortestPathDijkstra\IGetListVertexes.cs" />
+    <Compile Include="Data\StronglyConnectedComponent\Domain\Edge.cs" />
+    <Compile Include="Data\StronglyConnectedComponent\Domain\Graph.cs" />
+    <Compile Include="Data\StronglyConnectedComponent\Domain\Vertex.cs" />
+    <Compile Include="Data\StronglyConnectedComponent\Domain\VertexEdges.cs" />
+    <Compile Include="Data\StronglyConnectedComponent\GetGraphFS.cs" />
+    <Compile Include="Data\StronglyConnectedComponent\GetGraphTest.cs" />
+    <Compile Include="Data\StronglyConnectedComponent\GetVertexesFS.cs" />
+    <Compile Include="Data\StronglyConnectedComponent\GetVerticesTest.cs" />
+    <Compile Include="Implementations\StronglyConnectedComponent\GraphHelper.cs" />
+    <Compile Include="Data\StronglyConnectedComponent\IGetGraph.cs" />
+    <Compile Include="Data\StronglyConnectedComponent\IGetVertecies.cs" />
     <Compile Include="Implementations\KargerMinKut\IKargerMinCut.cs" />
     <Compile Include="Implementations\KargerMinKut\KargerMinCut.cs" />
     <Compile Include="Implementations\MergeSort\MergeSort.cs" />
@@ -66,6 +77,9 @@
     <Compile Include="Implementations\QuickSort\PivotMedianElement.cs" />
     <Compile Include="Implementations\QuickSort\QuickSort.cs" />
     <Compile Include="Implementations\ShortestPathDijkstra\Dijkstra.cs" />
+    <Compile Include="Implementations\StronglyConnectedComponent\DFS.cs" />
+    <Compile Include="Implementations\StronglyConnectedComponent\DFSVertexEdgesIsNotWorks.cs" />
+    <Compile Include="Implementations\StronglyConnectedComponent\SCCFast.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
