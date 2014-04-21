@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 using CA.Algorithms.Data.KargerMinCut;
 using CA.Algorithms.Data.KargerMinCut.Domain;
 using CA.Algorithms.Data.MergeSort;
 using CA.Algorithms.Data.QuickSort;
 using CA.Algorithms.Data.ShortestPathDijkstra;
+using CA.Algorithms.Data.StronglyConnectedComponent;
 using CA.Algorithms.Implementations.KargerMinKut;
 using CA.Algorithms.Implementations.MergeSort;
 using CA.Algorithms.Implementations.QuickSort;
 using CA.Algorithms.Implementations.ShortestPathDijkstra;
+using CA.Algorithms.Implementations.StronglyConnectedComponent;
 using CA.DI;
 using Ninject;
 using Ninject.Parameters;
@@ -19,20 +22,21 @@ namespace CA.ConsoleApp
 {
     class Program
     {
-        static readonly DependencyInjection ninj = new DependencyInjection();
+        static readonly IKernel Ninj = new DependencyInjection().NinjectKernel;
         static void Main()
         {
             //QuickSort();
             //MergeSort();
             //KargerMinCut();
-            DijkstraShortestPath();
+            //DijkstraShortestPath();
+            StronglyConnectedComponent();
         }
 
         public static void QuickSort()
         {
-            var dataManager = ninj.NinjectKernel.Get<IGetQuickSortData>();
-            var pivot = ninj.NinjectKernel.Get<IPivot>();
-            var quickSort = ninj.NinjectKernel.Get<QuickSort>();
+            var dataManager = Ninj.Get<IGetQuickSortData>();
+            var pivot = Ninj.Get<IPivot>();
+            var quickSort = Ninj.Get<QuickSort>();
 
             var data = dataManager.GetDataArray();
             long exchCount = 0;
@@ -55,8 +59,8 @@ namespace CA.ConsoleApp
 
         private static void MergeSort()
         {
-            var mergeSort = ninj.NinjectKernel.Get<MergeSort>();
-            var dataManager = ninj.NinjectKernel.Get<IGetMergeSortData>();
+            var mergeSort = Ninj.Get<MergeSort>();
+            var dataManager = Ninj.Get<IGetMergeSortData>();
             Int64 inversions = 0;
 
             mergeSort.MergeSortCount(dataManager.GetDataArray(), ref inversions);
@@ -66,8 +70,8 @@ namespace CA.ConsoleApp
 
         private static void KargerMinCut()
         {
-            var kargerData = ninj.NinjectKernel.Get<IGetGraphKarger>();
-            var kargerMinCut = ninj.NinjectKernel.Get<IKargerMinCut>();
+            var kargerData = Ninj.Get<IGetGraphKarger>();
+            var kargerMinCut = Ninj.Get<IKargerMinCut>();
 
             //PrintGraph(kargerData.GetGraph());
 
@@ -104,8 +108,8 @@ namespace CA.ConsoleApp
 
         private static void DijkstraShortestPath()
         {
-            var dataManager = ninj.NinjectKernel.Get<IGetListVertexes>();
-            var dijkstraShortPath = ninj.NinjectKernel.Get<Dijkstra>();
+            var dataManager = Ninj.Get<IGetListVertexes>();
+            var dijkstraShortPath = Ninj.Get<Dijkstra>();
 
             var path = dijkstraShortPath.Agorithm(dataManager.GetVerteces(), 1);
             var verArray = new[] {7, 37, 59, 82, 99, 115, 133, 165, 188, 197};
@@ -115,6 +119,25 @@ namespace CA.ConsoleApp
                 if(verArray.Contains(i))
                     Console.WriteLine("{0}:{1}", i, path[i]);
             }
+        }
+
+        private static void StronglyConnectedComponent()
+        {
+            var dataManager = Ninj.Get<IGetVerteciesScc>();
+            var sccAlgorithm = Ninj.Get<SccAlgorithm>();
+            const int stackSize = 1000000000;
+
+            var thread = new Thread(() =>
+            {
+                sccAlgorithm.DepthSearch(dataManager.GetGraph());
+
+                //foreach (var scComponent in scComponents.OrderBy(sc => sc.Count))
+                //{
+                //    Console.WriteLine(scComponent.Count);
+                //}
+            }, stackSize);
+
+            thread.Start();
         }
     }
 }

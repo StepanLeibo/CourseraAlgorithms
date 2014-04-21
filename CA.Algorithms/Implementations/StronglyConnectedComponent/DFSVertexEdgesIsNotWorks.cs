@@ -5,7 +5,7 @@ using CA.Algorithms.Data.StronglyConnectedComponent.Domain;
 
 namespace CA.Algorithms.Implementations.StronglyConnectedComponent
 {
-    public class DFSVertexEdgesIsNotWorks
+    public class SccAlgorithm
     {
         List<VertexEdgesScc> _foundVertices = new List<VertexEdgesScc>{new VertexEdgesScc
             {
@@ -20,7 +20,7 @@ namespace CA.Algorithms.Implementations.StronglyConnectedComponent
 
         public void DepthSearch(List<VertexEdgesScc> graph)
         {
-            GraphHelper.SetVerticesUnfound(graph);
+            SccGraphHelper.SetVerticesUnfound(graph);
             
             //Algorithm
             for (var i = 1; i < graph.Count; i++)
@@ -33,20 +33,17 @@ namespace CA.Algorithms.Implementations.StronglyConnectedComponent
 
             
 
-            Console.WriteLine(string.Format("Invert started: {0}", DateTime.Now));
+            Console.WriteLine("Invert started: {0}", DateTime.Now);
             for (int i = 1; i < _foundVertices.Count; i++)
             {
                 _newVert.Add(_foundVertices[i].ID, i);
             }
-            //foreach (var vertex in _foundVertices)
-            //{
-            //    _newVert.Add(vertex.ID, _foundVertices.IndexOf(vertex));
-            //}
-            Console.WriteLine(string.Format("Invert edges: {0}", DateTime.Now));
-            InvertEdges(_foundVertices);
-            Console.WriteLine(string.Format("Invert finished {0}", DateTime.Now));
 
-            GraphHelper.SetVerticesUnfound(_foundVertices);
+            Console.WriteLine("Invert edges: {0}", DateTime.Now);
+            InvertEdges(_foundVertices);
+            Console.WriteLine("Invert finished {0}", DateTime.Now);
+
+            SccGraphHelper.SetVerticesUnfound(_foundVertices);
 
             _foundVertices[0].Found = true;
 
@@ -70,9 +67,7 @@ namespace CA.Algorithms.Implementations.StronglyConnectedComponent
                     {
                         sccVertex.AddRange(scc);
                     }
-                    //var foundScc = 
-                    //    _foundVertices.Where(v => v.Found && !sccs.Any(s => s.Any(vv => vv.ID == v.ID))).ToList();
-                    //Console.WriteLine(string.Format("{0} ", _scc.Count));
+
                     sccs.Add(new List<VertexEdgesScc>(_scc));
                 }
             }
@@ -80,7 +75,7 @@ namespace CA.Algorithms.Implementations.StronglyConnectedComponent
             t = 1;
             foreach (var scc in sccs.OrderBy(s => s.Count))
             {
-                System.Console.WriteLine(string.Format("{0} component count: {1}", t, scc.Count));
+                Console.WriteLine("{0} component count: {1}", t, scc.Count);
             }
         }
 
