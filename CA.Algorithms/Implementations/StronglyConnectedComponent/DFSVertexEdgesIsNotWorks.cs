@@ -7,91 +7,96 @@ namespace CA.Algorithms.Implementations.StronglyConnectedComponent
 {
     public class SccAlgorithm
     {
-        List<VertexEdgesScc> _foundVertices = new List<VertexEdgesScc>{new VertexEdgesScc
-            {
-                Edges = new List<int>(),
-                ID = 0,
-                Found = true
-            }};
-        private int t = 0;
-        private List<VertexEdgesScc> _scc;
-        private Dictionary<int, int> _newVert;
- 
-
-        public void DepthSearch(List<VertexEdgesScc> graph)
+        public void FindSccs(List<VertexWithEdgesScc> graph)
         {
             SccGraphHelper.SetVerticesUnfound(graph);
             
             //Algorithm
-            for (var i = 1; i < graph.Count; i++)
+            var dfsGraph = GetDfsGraph(graph);
+
+            InvertGraph(dfsGraph);
+
+            SccGraphHelper.SetVerticesUnfound(dfsGraph);
+
+            dfsGraph[0].Found = true;
+
+            int componentNumber = 1;
+            var componentsList = FindComponents(dfsGraph);
+            foreach (var scc in componentsList.OrderBy(s => s.Count))
             {
-                if (!graph[i].Found)
-                    DepthSearchRecurse(graph, i, false);
+                Console.WriteLine("{0} component count: {1}", componentNumber++, scc.Count);
             }
+        }
 
-            _newVert = new Dictionary<int, int>();
-
-            
+        private void InvertGraph(List<VertexWithEdgesScc> dfsGraph)
+        {
+            var newVerticesOrder = new Dictionary<int, int>();
 
             Console.WriteLine("Invert started: {0}", DateTime.Now);
-            for (int i = 1; i < _foundVertices.Count; i++)
+            for (int i = 1; i < dfsGraph.Count; i++)
             {
-                _newVert.Add(_foundVertices[i].ID, i);
+                newVerticesOrder.Add(dfsGraph[i].ID, i);
             }
 
             Console.WriteLine("Invert edges: {0}", DateTime.Now);
-            InvertEdges(_foundVertices);
+            InvertEdges(dfsGraph, newVerticesOrder);
             Console.WriteLine("Invert finished {0}", DateTime.Now);
-
-            SccGraphHelper.SetVerticesUnfound(_foundVertices);
-
-            _foundVertices[0].Found = true;
-
-            SecondPass();
         }
 
-        private void SecondPass()
-        {
-            Console.WriteLine("Second Pass");
-            var sccs = new List<List<VertexEdgesScc>>();
-            t = 0;
-            //Algorithm
-            for (var i = 1; i < _foundVertices.Count; i++)
-            {
-                if (!_foundVertices[i].Found)
-                {
-                    _scc = new List<VertexEdgesScc>();
-                    DepthSearchRecurse(_foundVertices, i, true);
-                    var sccVertex = new List<VertexEdgesScc>();
-                    foreach (var scc in sccs)
-                    {
-                        sccVertex.AddRange(scc);
-                    }
-
-                    sccs.Add(new List<VertexEdgesScc>(_scc));
-                }
-            }
-
-            t = 1;
-            foreach (var scc in sccs.OrderBy(s => s.Count))
-            {
-                Console.WriteLine("{0} component count: {1}", t, scc.Count);
-            }
-        }
-
-        private void InvertEdges(List<VertexEdgesScc> graph)
+        private void InvertEdges(List<VertexWithEdgesScc> graph, Dictionary<int, int> newVerticesOrder)
         {
             for (int i = 1; i < graph.Count; i++)
             {
                 for (int j = 0; j < graph[i].Edges.Count; j++)
                 {
-                    graph[_newVert[graph[i].Edges[j]]].Edges.Add(i);
+                    graph[newVerticesOrder[graph[i].Edges[j]]].Edges.Add(i);
                     graph[i].Edges.Remove(graph[i].Edges[j]);
                 }
             }
         }
 
-        private void DepthSearchRecurse(List<VertexEdgesScc> graph, int vId, bool secondPass)
+        private List<VertexWithEdgesScc> GetDfsGraph(List<VertexWithEdgesScc> graph)
+        {
+            var foundVertices = new List<VertexWithEdgesScc>{new VertexWithEdgesScc
+            {
+                Edges = new List<int>(),
+                ID = 0,
+                Found = true
+            }};
+            for (var i = 1; i < graph.Count; i++)
+            {
+                if (!graph[i].Found)
+                    DepthSearchRecurse(graph, i, foundVertices, AddFoundVertex);
+            }
+
+            return foundVertices;
+        }
+
+        private IEnumerable<List<VertexWithEdgesScc>> FindComponents(List<VertexWithEdgesScc> foundVertices)
+        {
+            Console.WriteLine("FindComponents");
+            var sccs = new List<List<VertexWithEdgesScc>>();
+            //Algorithm
+            for (var i = 1; i < foundVertices.Count; i++)
+            {
+                if (!foundVertices[i].Found)
+                {
+                    var scc = new List<VertexWithEdgesScc>();
+                    DepthSearchRecurse(foundVertices, i, scc, GenerateScc);
+                    //var sccVertex = new List<VertexEdgesScc>();
+                    //foreach (var scc in sccs)
+                    //{
+                    //    sccVertex.AddRange(scc);
+                    //}
+
+                    sccs.Add(new List<VertexWithEdgesScc>(scc));
+                }
+            }
+
+            return sccs;
+        }
+
+        private void DepthSearchRecurse(List<VertexWithEdgesScc> graph, int vId, List<VertexWithEdgesScc> supportGraph, Action<VertexWithEdgesScc, List<VertexWithEdgesScc>> afterAction)
         {
             graph[vId].Found = true;
 
@@ -99,30 +104,25 @@ namespace CA.Algorithms.Implementations.StronglyConnectedComponent
             {
                 if (!graph[graph[vId].Edges[i]].Found)
                 {
-                    DepthSearchRecurse(graph, graph[vId].Edges[i], secondPass);
+                    DepthSearchRecurse(graph, graph[vId].Edges[i], supportGraph, afterAction);
                 }
             }
-            t++;
-            if(!secondPass)
-                DoSmth(graph[vId]);
-            else
-            {
-                Scc(graph[vId]);
-            }
+
+            afterAction(graph[vId], supportGraph);
         }
 
-        private void Scc(VertexEdgesScc vertexEdgesScc)
+        private int generateSccCounter = 0;
+        private void GenerateScc(VertexWithEdgesScc vertexEdgesScc, List<VertexWithEdgesScc> scc)
         {
-            _scc.Add(vertexEdgesScc);
+            generateSccCounter++;
+            if(generateSccCounter % 1000 == 0)
+                Console.WriteLine(generateSccCounter);
+            scc.Add(vertexEdgesScc);
         }
 
-        private void DoSmth(VertexEdgesScc vertex)
+        private void AddFoundVertex(VertexWithEdgesScc vertex, List<VertexWithEdgesScc> foundVertices)
         {
-            if (t%1000 == 0)
-            {
-                Console.Write("{0} ",t/1000);
-            }
-            _foundVertices.Add(vertex);
+            foundVertices.Add(vertex);
         }
     }
 }

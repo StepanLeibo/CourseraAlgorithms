@@ -2,22 +2,22 @@
 
 namespace CA.Algorithms.Data.StronglyConnectedComponent.Domain
 {
-    public class VertexEdgesScc
+    public class VertexWithEdgesScc
     {
-        public VertexEdgesScc()
+        public VertexWithEdgesScc()
         {
             Edges = new List<int>();
         }
 
-        public VertexEdgesScc(int i)
+        public VertexWithEdgesScc(int i)
         {
             ID = i;
             Edges = new List<int>();
         }
 
-        public static implicit operator VertexEdgesScc(int i)
+        public static implicit operator VertexWithEdgesScc(int i)
         {
-            return new VertexEdgesScc
+            return new VertexWithEdgesScc
                 {
                     ID = i,
                     Edges = new List<int>()

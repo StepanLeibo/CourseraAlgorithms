@@ -127,15 +127,7 @@ namespace CA.ConsoleApp
             var sccAlgorithm = Ninj.Get<SccAlgorithm>();
             const int stackSize = 1000000000;
 
-            var thread = new Thread(() =>
-            {
-                sccAlgorithm.DepthSearch(dataManager.GetGraph());
-
-                //foreach (var scComponent in scComponents.OrderBy(sc => sc.Count))
-                //{
-                //    Console.WriteLine(scComponent.Count);
-                //}
-            }, stackSize);
+            var thread = new Thread(() => sccAlgorithm.FindSccs(dataManager.GetGraph()), stackSize);
 
             thread.Start();
         }

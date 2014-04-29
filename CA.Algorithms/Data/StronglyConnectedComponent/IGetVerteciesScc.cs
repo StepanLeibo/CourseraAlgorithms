@@ -5,6 +5,6 @@ namespace CA.Algorithms.Data.StronglyConnectedComponent
 {
     public interface IGetVerteciesScc
     {
-        List<VertexEdgesScc> GetGraph();
+        List<VertexWithEdgesScc> GetGraph();
     }
 }

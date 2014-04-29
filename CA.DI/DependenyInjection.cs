@@ -55,6 +55,7 @@ namespace CA.DI
             #region Strongly connected component
 
             NinjectKernel.Bind<IGetVerteciesScc>().To<GetVerticesFSScc>();
+            //NinjectKernel.Bind<IGetVerteciesScc>().To<GetVerticesTestScc>();
 
             NinjectKernel.Bind<SccAlgorithm>().ToSelf();
 

@@ -6,9 +6,9 @@ namespace CA.Algorithms.Data.StronglyConnectedComponent
 {
     public class GetVerticesFSScc:IGetVerteciesScc
     {
-        public List<VertexEdgesScc> GetGraph()
+        public List<VertexWithEdgesScc> GetGraph()
         {
-            var graph = new List<VertexEdgesScc>();
+            var graph = new List<VertexWithEdgesScc>();
 
             for (int i = 0; i < 875714 + 1; i++)
             {

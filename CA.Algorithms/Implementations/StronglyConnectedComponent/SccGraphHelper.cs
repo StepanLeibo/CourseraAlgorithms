@@ -5,7 +5,7 @@ namespace CA.Algorithms.Implementations.StronglyConnectedComponent
 {
     public class SccGraphHelper
     {
-        public static void SetVerticesUnfound(List<VertexEdgesScc> graph)
+        public static void SetVerticesUnfound(List<VertexWithEdgesScc> graph)
         {
             foreach (var vertex in graph)
             {
