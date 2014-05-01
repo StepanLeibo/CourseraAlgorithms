@@ -1,13 +1,13 @@
 ﻿using CA.Algorithms.Data.KargerMinCut;
 using CA.Algorithms.Data.MergeSort;
 using CA.Algorithms.Data.QuickSort;
+using CA.Algorithms.Data.SccKosaraju;
 using CA.Algorithms.Data.ShortestPathDijkstra;
-using CA.Algorithms.Data.StronglyConnectedComponent;
 using CA.Algorithms.Implementations.MergeSort;
 using CA.Algorithms.Implementations.QuickSort;
 using CA.Algorithms.Implementations.KargerMinKut;
+using CA.Algorithms.Implementations.SccKosaraju;
 using CA.Algorithms.Implementations.ShortestPathDijkstra;
-using CA.Algorithms.Implementations.StronglyConnectedComponent;
 using Ninject;
 using GetDataFileSystem = CA.Algorithms.Data.QuickSort.GetDataFileSystem;
 
@@ -54,9 +54,8 @@ namespace CA.DI
 
             #region Strongly connected component
 
-            NinjectKernel.Bind<IGetVerteciesScc>().To<GetVerticesFSScc>();
-            //NinjectKernel.Bind<IGetVerteciesScc>().To<GetVerticesTestScc>();
-
+            //NinjectKernel.Bind<IGetGraphScc>().To<GetGraphSccTest>();
+            NinjectKernel.Bind<IGetGraphScc>().To<GetGraphSccFs>();
             NinjectKernel.Bind<SccAlgorithm>().ToSelf();
 
             #endregion

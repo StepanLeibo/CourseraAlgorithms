@@ -40,9 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\GraphObjects\EdgeInfo.cs" />
+    <Compile Include="Data\GraphObjects\GraphInfo.cs" />
+    <Compile Include="Data\GraphObjects\VertexInfo.cs" />
     <Compile Include="Data\KargerMinCut\Domain\EdgeKmc.cs" />
     <Compile Include="Data\KargerMinCut\Domain\GraphKmc.cs" />
-    <Compile Include="Data\KargerMinCut\Domain\VertexKmc.cs" />
     <Compile Include="Data\KargerMinCut\GetGraphFS.cs" />
     <Compile Include="Data\KargerMinCut\GetGraphTest.cs" />
     <Compile Include="Data\KargerMinCut\IGetGraph.cs" />
@@ -52,16 +54,15 @@
     <Compile Include="Data\QuickSort\GetDataFileSystem.cs" />
     <Compile Include="Data\QuickSort\GetSimpleDataHelper.cs" />
     <Compile Include="Data\QuickSort\IGetQuickSortData.cs" />
+    <Compile Include="Data\SccKosaraju\GetGraphSccFs.cs" />
+    <Compile Include="Data\SccKosaraju\GetGraphSccTest.cs" />
+    <Compile Include="Data\SccKosaraju\IGetGraphScc.cs" />
     <Compile Include="Data\ShortestPathDijkstra\Domain\EdgeSp.cs" />
     <Compile Include="Data\ShortestPathDijkstra\Domain\VertexSp.cs" />
     <Compile Include="Data\ShortestPathDijkstra\GetListVertecesFS.cs" />
     <Compile Include="Data\ShortestPathDijkstra\GetListVertecesTest.cs" />
     <Compile Include="Data\ShortestPathDijkstra\IGetListVertexes.cs" />
-    <Compile Include="Data\StronglyConnectedComponent\Domain\VertexEdges.cs" />
-    <Compile Include="Data\StronglyConnectedComponent\GetVerticesFSScc.cs" />
-    <Compile Include="Data\StronglyConnectedComponent\GetVerticesTestScc.cs" />
-    <Compile Include="Implementations\StronglyConnectedComponent\SccGraphHelper.cs" />
-    <Compile Include="Data\StronglyConnectedComponent\IGetVerteciesScc.cs" />
+    <Compile Include="Implementations\SccKosaraju\SccAlgorithm.cs" />
     <Compile Include="Implementations\KargerMinKut\IKargerMinCut.cs" />
     <Compile Include="Implementations\KargerMinKut\KargerMinCut.cs" />
     <Compile Include="Implementations\MergeSort\MergeSort.cs" />
@@ -71,16 +72,21 @@
     <Compile Include="Implementations\QuickSort\PivotMedianElement.cs" />
     <Compile Include="Implementations\QuickSort\QuickSort.cs" />
     <Compile Include="Implementations\ShortestPathDijkstra\Dijkstra.cs" />
-    <Compile Include="Implementations\StronglyConnectedComponent\DFSVertexEdgesIsNotWorks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\KargerMinCut\kargerMinCut.txt" />
     <Content Include="Data\MergeSort\IntegerArray.txt" />
     <Content Include="Data\QuickSort\QuickSort.txt" />
+    <Content Include="Data\SccKosaraju\SCC.txt" />
     <Content Include="Data\ShortestPathDijkstra\dijkstraData.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SpeedMeasure\SpeedMeasure.csproj">
+      <Project>{3A110125-AE80-4A94-BED6-D21AA13315B4}</Project>
+      <Name>SpeedMeasure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,21 +1,24 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using CA.Algorithms.Data.StronglyConnectedComponent.Domain;
+using CA.Algorithms.Data.GraphObjects;
 
-namespace CA.Algorithms.Data.StronglyConnectedComponent
+namespace CA.Algorithms.Data.SccKosaraju
 {
-    public class GetVerticesFSScc:IGetVerteciesScc
+    public class GetGraphSccFs : IGetGraphScc
     {
-        public List<VertexWithEdgesScc> GetGraph()
+        public List<VertexWithEdges> GetGraph()
         {
-            var graph = new List<VertexWithEdgesScc>();
+            var graph = new List<VertexWithEdges>();
 
             for (int i = 0; i < 875714 + 1; i++)
             {
-                graph.Add(i);
+                graph.Add(new VertexWithEdges
+                {
+                    Id = i
+                });
             }
 
-            using (TextReader reader = File.OpenText(@"..\..\..\CA.Algorithms\Data\StronglyConnectedComponent\SCC.txt"))
+            using (TextReader reader = File.OpenText(@"..\..\..\CA.Algorithms\Data\SccKosaraju\SCC.txt"))
             {
                 string text = reader.ReadLine();
                 while (text != null)
@@ -26,11 +29,13 @@ namespace CA.Algorithms.Data.StronglyConnectedComponent
 
                     if (int.TryParse(splited[0], out vertex))
                     {
+                        vertex -= 1;
                         for (var c = 1; c < splited.Length; c++)
                         {
                             int endpoint;
                             if (int.TryParse(splited[c], out endpoint))
                             {
+                                endpoint -= 1;
                                 graph[vertex].Edges.Add(endpoint);
                             }
                         }

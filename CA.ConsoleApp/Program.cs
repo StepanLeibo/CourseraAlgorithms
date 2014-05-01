@@ -7,13 +7,13 @@ using CA.Algorithms.Data.KargerMinCut;
 using CA.Algorithms.Data.KargerMinCut.Domain;
 using CA.Algorithms.Data.MergeSort;
 using CA.Algorithms.Data.QuickSort;
+using CA.Algorithms.Data.SccKosaraju;
 using CA.Algorithms.Data.ShortestPathDijkstra;
-using CA.Algorithms.Data.StronglyConnectedComponent;
 using CA.Algorithms.Implementations.KargerMinKut;
 using CA.Algorithms.Implementations.MergeSort;
 using CA.Algorithms.Implementations.QuickSort;
+using CA.Algorithms.Implementations.SccKosaraju;
 using CA.Algorithms.Implementations.ShortestPathDijkstra;
-using CA.Algorithms.Implementations.StronglyConnectedComponent;
 using CA.DI;
 using Ninject;
 using Ninject.Parameters;
@@ -123,11 +123,14 @@ namespace CA.ConsoleApp
 
         private static void StronglyConnectedComponent()
         {
-            var dataManager = Ninj.Get<IGetVerteciesScc>();
+            //var dataManager = Ninj.Get<IGetVerteciesScc>();
+            //var sccAlgorithm = Ninj.Get<SccAlgorithmDoesntWork>();
+
+            var dataManager = Ninj.Get<IGetGraphScc>();
             var sccAlgorithm = Ninj.Get<SccAlgorithm>();
             const int stackSize = 1000000000;
 
-            var thread = new Thread(() => sccAlgorithm.FindSccs(dataManager.GetGraph()), stackSize);
+            var thread = new Thread(() => sccAlgorithm.FindComponents(dataManager.GetGraph()), stackSize);
 
             thread.Start();
         }
