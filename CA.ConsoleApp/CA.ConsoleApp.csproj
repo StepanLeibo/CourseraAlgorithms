@@ -58,6 +58,10 @@
       <Project>{F77492F8-11D9-4171-9494-46B615117C27}</Project>
       <Name>CA.DI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SpeedMeasure\SpeedMeasure.csproj">
+      <Project>{3A110125-AE80-4A94-BED6-D21AA13315B4}</Project>
+      <Name>SpeedMeasure</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -9,14 +9,17 @@ using CA.Algorithms.Data.MergeSort;
 using CA.Algorithms.Data.QuickSort;
 using CA.Algorithms.Data.SccKosaraju;
 using CA.Algorithms.Data.ShortestPathDijkstra;
+using CA.Algorithms.Data._2Sum;
 using CA.Algorithms.Implementations.KargerMinKut;
 using CA.Algorithms.Implementations.MergeSort;
 using CA.Algorithms.Implementations.QuickSort;
 using CA.Algorithms.Implementations.SccKosaraju;
 using CA.Algorithms.Implementations.ShortestPathDijkstra;
+using CA.Algorithms.Implementations._2Sum;
 using CA.DI;
 using Ninject;
 using Ninject.Parameters;
+using SpeedMeasure;
 
 namespace CA.ConsoleApp
 {
@@ -29,7 +32,8 @@ namespace CA.ConsoleApp
             //MergeSort();
             //KargerMinCut();
             //DijkstraShortestPath();
-            StronglyConnectedComponent();
+            //StronglyConnectedComponent();
+            SumAlgorithm();
         }
 
         public static void QuickSort()
@@ -123,9 +127,6 @@ namespace CA.ConsoleApp
 
         private static void StronglyConnectedComponent()
         {
-            //var dataManager = Ninj.Get<IGetVerteciesScc>();
-            //var sccAlgorithm = Ninj.Get<SccAlgorithmDoesntWork>();
-
             var dataManager = Ninj.Get<IGetGraphScc>();
             var sccAlgorithm = Ninj.Get<SccAlgorithm>();
             const int stackSize = 1000000000;
@@ -133,6 +134,26 @@ namespace CA.ConsoleApp
             var thread = new Thread(() => sccAlgorithm.FindComponents(dataManager.GetGraph()), stackSize);
 
             thread.Start();
+        }
+
+        private static void SumAlgorithm()
+        {
+            var dataManager = Ninj.Get<IGet2SumData>();
+            var sumAlgorithm = Ninj.Get<I2SumAlgorithm>();
+            var measure = new Measure("2-Sum");
+
+            int counter = 0;
+            measure.StartMeasure();
+            for (int t = 2500; t <= 4000; t++)
+            {
+                if (sumAlgorithm.Match2Sum(dataManager.GetData(), t))
+                {
+                    counter++;
+                }
+            }
+            measure.StopMeasureDisplay();
+
+            Console.WriteLine(counter);
         }
     }
 }

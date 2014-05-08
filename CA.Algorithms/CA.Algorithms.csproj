@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\2Sum\Get2SumDataFs.cs" />
+    <Compile Include="Data\2Sum\Get2SumDataTest.cs" />
+    <Compile Include="Data\2Sum\IGet2SumData.cs" />
     <Compile Include="Data\GraphObjects\EdgeInfo.cs" />
     <Compile Include="Data\GraphObjects\GraphInfo.cs" />
     <Compile Include="Data\GraphObjects\VertexInfo.cs" />
@@ -62,6 +65,9 @@
     <Compile Include="Data\ShortestPathDijkstra\GetListVertecesFS.cs" />
     <Compile Include="Data\ShortestPathDijkstra\GetListVertecesTest.cs" />
     <Compile Include="Data\ShortestPathDijkstra\IGetListVertexes.cs" />
+    <Compile Include="Implementations\2Sum\SumHash.cs" />
+    <Compile Include="Implementations\2Sum\I2SumAlgorithm.cs" />
+    <Compile Include="Implementations\2Sum\SumNativeSolution.cs" />
     <Compile Include="Implementations\SccKosaraju\SccAlgorithm.cs" />
     <Compile Include="Implementations\KargerMinKut\IKargerMinCut.cs" />
     <Compile Include="Implementations\KargerMinKut\KargerMinCut.cs" />
@@ -75,6 +81,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\2Sum\HashInt.txt" />
     <Content Include="Data\KargerMinCut\kargerMinCut.txt" />
     <Content Include="Data\MergeSort\IntegerArray.txt" />
     <Content Include="Data\QuickSort\QuickSort.txt" />
@@ -87,6 +94,7 @@
       <Name>SpeedMeasure</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

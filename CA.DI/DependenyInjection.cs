@@ -3,11 +3,13 @@ using CA.Algorithms.Data.MergeSort;
 using CA.Algorithms.Data.QuickSort;
 using CA.Algorithms.Data.SccKosaraju;
 using CA.Algorithms.Data.ShortestPathDijkstra;
+using CA.Algorithms.Data._2Sum;
 using CA.Algorithms.Implementations.MergeSort;
 using CA.Algorithms.Implementations.QuickSort;
 using CA.Algorithms.Implementations.KargerMinKut;
 using CA.Algorithms.Implementations.SccKosaraju;
 using CA.Algorithms.Implementations.ShortestPathDijkstra;
+using CA.Algorithms.Implementations._2Sum;
 using Ninject;
 using GetDataFileSystem = CA.Algorithms.Data.QuickSort.GetDataFileSystem;
 
@@ -57,6 +59,16 @@ namespace CA.DI
             //NinjectKernel.Bind<IGetGraphScc>().To<GetGraphSccTest>();
             NinjectKernel.Bind<IGetGraphScc>().To<GetGraphSccFs>();
             NinjectKernel.Bind<SccAlgorithm>().ToSelf();
+
+            #endregion
+
+            #region 2-Sum
+
+            //NinjectKernel.Bind<IGet2SumData>().To<Get2SumDataTest>();
+            NinjectKernel.Bind<IGet2SumData>().To<Get2SumDataFs>();
+
+            NinjectKernel.Bind<I2SumAlgorithm>().To<SumHash>();
+            //NinjectKernel.Bind<I2SumAlgorithm>().To<SumNativeSolution>();
 
             #endregion
         }

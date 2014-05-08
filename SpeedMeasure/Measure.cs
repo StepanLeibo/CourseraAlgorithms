@@ -19,13 +19,14 @@ namespace SpeedMeasure
 
         public void StartMeasure()
         {
+            Console.WriteLine("Measure time {0} started.", _name);
             _start = Process.GetCurrentProcess().TotalProcessorTime;
         }
 
         public void StopMeasureDisplay()
         {
             _end = Process.GetCurrentProcess().TotalProcessorTime;
-            Console.WriteLine("Measured time {0}: {1} ms.", _name, (_end - _start).TotalMilliseconds);
+            Console.WriteLine("Measure time {0}: {1} ms.", _name, (_end - _start).TotalMilliseconds);
         }
 
     }
