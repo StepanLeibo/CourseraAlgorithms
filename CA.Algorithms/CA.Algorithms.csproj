@@ -43,6 +43,8 @@
     <Compile Include="Data\2Sum\Get2SumDataFs.cs" />
     <Compile Include="Data\2Sum\Get2SumDataTest.cs" />
     <Compile Include="Data\2Sum\IGet2SumData.cs" />
+    <Compile Include="Data\BinaryTree\GetBinaryTreeDataTest.cs" />
+    <Compile Include="Data\BinaryTree\IGetBinaryTreeData.cs" />
     <Compile Include="Data\GraphObjects\EdgeInfo.cs" />
     <Compile Include="Data\GraphObjects\GraphInfo.cs" />
     <Compile Include="Data\GraphObjects\VertexInfo.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="Implementations\2Sum\SumHash.cs" />
     <Compile Include="Implementations\2Sum\I2SumAlgorithm.cs" />
     <Compile Include="Implementations\2Sum\SumNativeSolution.cs" />
+    <Compile Include="Implementations\BinaryTree\BalancedBinaryTree.cs" />
     <Compile Include="Implementations\SccKosaraju\SccAlgorithm.cs" />
     <Compile Include="Implementations\KargerMinKut\IKargerMinCut.cs" />
     <Compile Include="Implementations\KargerMinKut\KargerMinCut.cs" />
