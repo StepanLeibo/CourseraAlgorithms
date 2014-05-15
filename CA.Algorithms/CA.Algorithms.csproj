@@ -43,8 +43,9 @@
     <Compile Include="Data\2Sum\Get2SumDataFs.cs" />
     <Compile Include="Data\2Sum\Get2SumDataTest.cs" />
     <Compile Include="Data\2Sum\IGet2SumData.cs" />
-    <Compile Include="Data\BinaryTree\GetBinaryTreeDataTest.cs" />
-    <Compile Include="Data\BinaryTree\IGetBinaryTreeData.cs" />
+    <Compile Include="Data\MedianMaintenance\GetMedianMaintenanceDataFs.cs" />
+    <Compile Include="Data\MedianMaintenance\GetMedianMaintenanceDataTest.cs" />
+    <Compile Include="Data\MedianMaintenance\IGetBinaryTreeData.cs" />
     <Compile Include="Data\GraphObjects\EdgeInfo.cs" />
     <Compile Include="Data\GraphObjects\GraphInfo.cs" />
     <Compile Include="Data\GraphObjects\VertexInfo.cs" />
@@ -70,7 +71,8 @@
     <Compile Include="Implementations\2Sum\SumHash.cs" />
     <Compile Include="Implementations\2Sum\I2SumAlgorithm.cs" />
     <Compile Include="Implementations\2Sum\SumNativeSolution.cs" />
-    <Compile Include="Implementations\BinaryTree\BalancedBinaryTree.cs" />
+    <Compile Include="Implementations\BinaryTree\Heap.cs" />
+    <Compile Include="Implementations\MedianMaintenance\MedianMaintenanceAlgorith.cs" />
     <Compile Include="Implementations\SccKosaraju\SccAlgorithm.cs" />
     <Compile Include="Implementations\KargerMinKut\IKargerMinCut.cs" />
     <Compile Include="Implementations\KargerMinKut\KargerMinCut.cs" />
@@ -86,6 +88,7 @@
   <ItemGroup>
     <Content Include="Data\2Sum\HashInt.txt" />
     <Content Include="Data\KargerMinCut\kargerMinCut.txt" />
+    <Content Include="Data\MedianMaintenance\Median.txt" />
     <Content Include="Data\MergeSort\IntegerArray.txt" />
     <Content Include="Data\QuickSort\QuickSort.txt" />
     <Content Include="Data\SccKosaraju\SCC.txt" />

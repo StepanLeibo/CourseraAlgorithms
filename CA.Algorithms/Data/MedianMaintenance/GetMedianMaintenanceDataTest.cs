@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace CA.Algorithms.Data.BinaryTree
+namespace CA.Algorithms.Data.MedianMaintenance
 {
-    public class GetBinaryTreeDataTest : IGetBinaryTreeData
+    public class GetMedianMaintenanceDataTest : IGetMedianMaintenanceData
     {
         public IEnumerable<int> GetData()
         {

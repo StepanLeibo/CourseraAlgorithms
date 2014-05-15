@@ -33,7 +33,8 @@ namespace CA.ConsoleApp
             //KargerMinCut();
             //DijkstraShortestPath();
             //StronglyConnectedComponent();
-            SumAlgorithm();
+            //SumAlgorithm();
+            MedianMaintenance();
         }
 
         public static void QuickSort()
@@ -154,6 +155,11 @@ namespace CA.ConsoleApp
             measure.StopMeasureDisplay();
 
             Console.WriteLine(counter);
+        }
+
+        private static void MedianMaintenance()
+        {
+            
         }
     }
 }

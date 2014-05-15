@@ -1,9 +1,11 @@
 ﻿using CA.Algorithms.Data.KargerMinCut;
+using CA.Algorithms.Data.MedianMaintenance;
 using CA.Algorithms.Data.MergeSort;
 using CA.Algorithms.Data.QuickSort;
 using CA.Algorithms.Data.SccKosaraju;
 using CA.Algorithms.Data.ShortestPathDijkstra;
 using CA.Algorithms.Data._2Sum;
+using CA.Algorithms.Implementations.MedianMaintenance;
 using CA.Algorithms.Implementations.MergeSort;
 using CA.Algorithms.Implementations.QuickSort;
 using CA.Algorithms.Implementations.KargerMinKut;
@@ -69,6 +71,15 @@ namespace CA.DI
 
             NinjectKernel.Bind<I2SumAlgorithm>().To<SumHash>();
             //NinjectKernel.Bind<I2SumAlgorithm>().To<SumNativeSolution>();
+
+            #endregion
+
+            #region Median maintenance
+
+            NinjectKernel.Bind<IGetMedianMaintenanceData>().To<GetMedianMaintenanceDataTest>();
+            //NinjectKernel.Bind<IGetMedianMaintenanceData>().To<GetMedianMaintenanceDataFs>();
+
+            NinjectKernel.Bind<MedianMaintenanceAlgorith>().ToSelf();
 
             #endregion
         }
