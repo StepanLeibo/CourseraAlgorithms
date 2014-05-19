@@ -76,8 +76,8 @@ namespace CA.DI
 
             #region Median maintenance
 
-            NinjectKernel.Bind<IGetMedianMaintenanceData>().To<GetMedianMaintenanceDataTest>();
-            //NinjectKernel.Bind<IGetMedianMaintenanceData>().To<GetMedianMaintenanceDataFs>();
+            //NinjectKernel.Bind<IGetMedianMaintenanceData>().To<GetMedianMaintenanceDataTest>();
+            NinjectKernel.Bind<IGetMedianMaintenanceData>().To<GetMedianMaintenanceDataFs>();
 
             NinjectKernel.Bind<MedianMaintenanceAlgorith>().ToSelf();
 

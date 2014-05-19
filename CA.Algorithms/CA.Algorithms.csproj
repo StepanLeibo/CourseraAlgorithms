@@ -45,7 +45,7 @@
     <Compile Include="Data\2Sum\IGet2SumData.cs" />
     <Compile Include="Data\MedianMaintenance\GetMedianMaintenanceDataFs.cs" />
     <Compile Include="Data\MedianMaintenance\GetMedianMaintenanceDataTest.cs" />
-    <Compile Include="Data\MedianMaintenance\IGetBinaryTreeData.cs" />
+    <Compile Include="Data\MedianMaintenance\IGetMedianMaintenanceData.cs" />
     <Compile Include="Data\GraphObjects\EdgeInfo.cs" />
     <Compile Include="Data\GraphObjects\GraphInfo.cs" />
     <Compile Include="Data\GraphObjects\VertexInfo.cs" />

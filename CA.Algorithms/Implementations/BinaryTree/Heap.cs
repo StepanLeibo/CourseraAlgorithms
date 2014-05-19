@@ -36,60 +36,60 @@ namespace CA.Algorithms.Implementations.BinaryTree
 
         private void MinHeapify(int i)
         {
-            int smalestIndex;
+            int smallestIndex;
             int l = 2*(i + 1) - 1;
             int r = 2*(i + 1);
 
             if (l < data.Count && (data[l].CompareTo(data[i]) < 0))
             {
-                smalestIndex = l;
+                smallestIndex = l;
             }
             else
             {
-                smalestIndex = i;
+                smallestIndex = i;
             }
 
-            if (r < data.Count && (data[r].CompareTo(data[i]) < 0))
+            if (r < data.Count && (data[r].CompareTo(data[smallestIndex]) < 0))
             {
-                smalestIndex = r;
+                smallestIndex = r;
             }
 
-            if (smalestIndex != i)
+            if (smallestIndex != i)
             {
                 T tmp = data[i];
-                data[i] = data[smalestIndex];
-                data[smalestIndex] = tmp;
+                data[i] = data[smallestIndex];
+                data[smallestIndex] = tmp;
 
-                MinHeapify(smalestIndex);
+                MinHeapify(smallestIndex);
             }
         }
         private void MaxHeapify(int i)
         {
-            int bigestIndex;
+            int biggestIndex;
             int l = 2 * (i + 1) - 1;
             int r = 2 * (i + 1);
 
             if (l < data.Count && (data[l].CompareTo(data[i]) > 0))
             {
-                bigestIndex = l;
+                biggestIndex = l;
             }
             else
             {
-                bigestIndex = i;
+                biggestIndex = i;
             }
 
-            if (r < data.Count && (data[r].CompareTo(data[i]) > 0))
+            if (r < data.Count && (data[r].CompareTo(data[biggestIndex]) > 0))
             {
-                bigestIndex = r;
+                biggestIndex = r;
             }
 
-            if (bigestIndex != i)
+            if (biggestIndex != i)
             {
                 T tmp = data[i];
-                data[i] = data[bigestIndex];
-                data[bigestIndex] = tmp;
+                data[i] = data[biggestIndex];
+                data[biggestIndex] = tmp;
 
-                MaxHeapify(bigestIndex);
+                MaxHeapify(biggestIndex);
             }
         }
         #endregion
@@ -118,6 +118,8 @@ namespace CA.Algorithms.Implementations.BinaryTree
 
                 itemInd = parentInd;
             }
+
+            heapify(0);
         }
 
         public T ExtractTop()

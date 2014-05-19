@@ -5,12 +5,14 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using CA.Algorithms.Data.KargerMinCut;
 using CA.Algorithms.Data.KargerMinCut.Domain;
+using CA.Algorithms.Data.MedianMaintenance;
 using CA.Algorithms.Data.MergeSort;
 using CA.Algorithms.Data.QuickSort;
 using CA.Algorithms.Data.SccKosaraju;
 using CA.Algorithms.Data.ShortestPathDijkstra;
 using CA.Algorithms.Data._2Sum;
 using CA.Algorithms.Implementations.KargerMinKut;
+using CA.Algorithms.Implementations.MedianMaintenance;
 using CA.Algorithms.Implementations.MergeSort;
 using CA.Algorithms.Implementations.QuickSort;
 using CA.Algorithms.Implementations.SccKosaraju;
@@ -159,7 +161,16 @@ namespace CA.ConsoleApp
 
         private static void MedianMaintenance()
         {
-            
+            var dataManager = Ninj.Get<IGetMedianMaintenanceData>();
+            var medianMaintenanceAlgorithm = Ninj.Get<MedianMaintenanceAlgorith>();
+
+            var medianSum = 0;
+            foreach (var item in dataManager.GetData())
+            {
+                medianSum += medianMaintenanceAlgorithm.GetMedianWithNewItem(item);
+            }
+
+            Console.WriteLine(medianSum % 10000);
         }
     }
 }
