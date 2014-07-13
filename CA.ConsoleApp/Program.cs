@@ -7,15 +7,19 @@ using CA.Algorithms.Data.KargerMinCut;
 using CA.Algorithms.Data.KargerMinCut.Domain;
 using CA.Algorithms.Data.MedianMaintenance;
 using CA.Algorithms.Data.MergeSort;
+using CA.Algorithms.Data.PrimMst;
 using CA.Algorithms.Data.QuickSort;
 using CA.Algorithms.Data.SccKosaraju;
+using CA.Algorithms.Data.SchedulingProblem;
 using CA.Algorithms.Data.ShortestPathDijkstra;
 using CA.Algorithms.Data._2Sum;
 using CA.Algorithms.Implementations.KargerMinKut;
 using CA.Algorithms.Implementations.MedianMaintenance;
 using CA.Algorithms.Implementations.MergeSort;
+using CA.Algorithms.Implementations.PrimMst;
 using CA.Algorithms.Implementations.QuickSort;
 using CA.Algorithms.Implementations.SccKosaraju;
+using CA.Algorithms.Implementations.SchedulingProblem;
 using CA.Algorithms.Implementations.ShortestPathDijkstra;
 using CA.Algorithms.Implementations._2Sum;
 using CA.DI;
@@ -36,7 +40,9 @@ namespace CA.ConsoleApp
             //DijkstraShortestPath();
             //StronglyConnectedComponent();
             //SumAlgorithm();
-            MedianMaintenance();
+            //MedianMaintenance();
+            SchedulingProblem();
+            //PrimMst();
         }
 
         public static void QuickSort()
@@ -171,6 +177,25 @@ namespace CA.ConsoleApp
             }
 
             Console.WriteLine(medianSum % 10000);
+        }
+
+        private static void SchedulingProblem()
+        {
+            var dataManaer = Ninj.Get<IJobsDataManager>();
+            var schedulingAlgorithm = new SchedulingSubstraction();
+            //var schedulingAlgorithm = new SchedulingDivision();
+            Console.WriteLine(schedulingAlgorithm.Execute(dataManaer.GetJobs()));
+            
+        }
+
+        private static void PrimMst()
+        {
+            var dataManager = Ninj.Get<IGetPrimMstData>();
+
+            var primAlgorithm = new PrimAlgorithm();
+
+            var vertexPrims = dataManager.GetData();
+            Console.WriteLine(primAlgorithm.PathLength(vertexPrims));
         }
     }
 }

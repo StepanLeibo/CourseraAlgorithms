@@ -57,12 +57,19 @@
     <Compile Include="Data\MergeSort\GetDataFileSystemMS.cs" />
     <Compile Include="Data\MergeSort\GetSimpleDataHelperMS.cs" />
     <Compile Include="Data\MergeSort\IGetMergeSortData.cs" />
+    <Compile Include="Data\PrimMst\EdgePrim.cs" />
+    <Compile Include="Data\PrimMst\GetPrimMstDataFs.cs" />
+    <Compile Include="Data\PrimMst\IGetPrimMstData.cs" />
+    <Compile Include="Data\PrimMst\VertexPrim.cs" />
     <Compile Include="Data\QuickSort\GetDataFileSystem.cs" />
     <Compile Include="Data\QuickSort\GetSimpleDataHelper.cs" />
     <Compile Include="Data\QuickSort\IGetQuickSortData.cs" />
     <Compile Include="Data\SccKosaraju\GetGraphSccFs.cs" />
     <Compile Include="Data\SccKosaraju\GetGraphSccTest.cs" />
     <Compile Include="Data\SccKosaraju\IGetGraphScc.cs" />
+    <Compile Include="Data\SchedulingProblem\JobsDataManager.cs" />
+    <Compile Include="Data\SchedulingProblem\IJobsDataManager.cs" />
+    <Compile Include="Data\SchedulingProblem\Job.cs" />
     <Compile Include="Data\ShortestPathDijkstra\Domain\EdgeSp.cs" />
     <Compile Include="Data\ShortestPathDijkstra\Domain\VertexSp.cs" />
     <Compile Include="Data\ShortestPathDijkstra\GetListVertecesFS.cs" />
@@ -73,6 +80,7 @@
     <Compile Include="Implementations\2Sum\SumNativeSolution.cs" />
     <Compile Include="Implementations\BinaryTree\Heap.cs" />
     <Compile Include="Implementations\MedianMaintenance\MedianMaintenanceAlgorith.cs" />
+    <Compile Include="Implementations\PrimMst\PrimAlgorithm.cs" />
     <Compile Include="Implementations\SccKosaraju\SccAlgorithm.cs" />
     <Compile Include="Implementations\KargerMinKut\IKargerMinCut.cs" />
     <Compile Include="Implementations\KargerMinKut\KargerMinCut.cs" />
@@ -82,6 +90,9 @@
     <Compile Include="Implementations\QuickSort\PivotLastElement.cs" />
     <Compile Include="Implementations\QuickSort\PivotMedianElement.cs" />
     <Compile Include="Implementations\QuickSort\QuickSort.cs" />
+    <Compile Include="Implementations\SchedulingProblem\SchedulingBase.cs" />
+    <Compile Include="Implementations\SchedulingProblem\SchedulingDivision.cs" />
+    <Compile Include="Implementations\SchedulingProblem\SchedulingSubstraction.cs" />
     <Compile Include="Implementations\ShortestPathDijkstra\Dijkstra.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -90,8 +101,12 @@
     <Content Include="Data\KargerMinCut\kargerMinCut.txt" />
     <Content Include="Data\MedianMaintenance\Median.txt" />
     <Content Include="Data\MergeSort\IntegerArray.txt" />
+    <Content Include="Data\PrimMst\edges.txt" />
+    <Content Include="Data\PrimMst\edgesTest.txt" />
     <Content Include="Data\QuickSort\QuickSort.txt" />
     <Content Include="Data\SccKosaraju\SCC.txt" />
+    <Content Include="Data\SchedulingProblem\jobs.txt" />
+    <Content Include="Data\SchedulingProblem\jobsTest.txt" />
     <Content Include="Data\ShortestPathDijkstra\dijkstraData.txt" />
   </ItemGroup>
   <ItemGroup>

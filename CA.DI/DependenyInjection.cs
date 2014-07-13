@@ -1,8 +1,10 @@
 ﻿using CA.Algorithms.Data.KargerMinCut;
 using CA.Algorithms.Data.MedianMaintenance;
 using CA.Algorithms.Data.MergeSort;
+using CA.Algorithms.Data.PrimMst;
 using CA.Algorithms.Data.QuickSort;
 using CA.Algorithms.Data.SccKosaraju;
+using CA.Algorithms.Data.SchedulingProblem;
 using CA.Algorithms.Data.ShortestPathDijkstra;
 using CA.Algorithms.Data._2Sum;
 using CA.Algorithms.Implementations.MedianMaintenance;
@@ -12,6 +14,7 @@ using CA.Algorithms.Implementations.KargerMinKut;
 using CA.Algorithms.Implementations.SccKosaraju;
 using CA.Algorithms.Implementations.ShortestPathDijkstra;
 using CA.Algorithms.Implementations._2Sum;
+using CA.Algorithms.Implementations.SchedulingProblem;
 using Ninject;
 using GetDataFileSystem = CA.Algorithms.Data.QuickSort.GetDataFileSystem;
 
@@ -80,6 +83,18 @@ namespace CA.DI
             NinjectKernel.Bind<IGetMedianMaintenanceData>().To<GetMedianMaintenanceDataFs>();
 
             NinjectKernel.Bind<MedianMaintenanceAlgorith>().ToSelf();
+
+            #endregion
+
+            #region Scheduled jobs
+
+            NinjectKernel.Bind<IJobsDataManager>().To<JobsDataManager>();
+
+            #endregion
+
+            #region Prim MST
+
+            NinjectKernel.Bind<IGetPrimMstData>().To<GetPrimMstDataFs>();
 
             #endregion
         }

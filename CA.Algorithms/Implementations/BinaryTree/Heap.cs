@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CA.Algorithms.Implementations.BinaryTree
 {
-    public class Heap<T> where T:IComparable
+    public class Heap<T> where T:IComparable<T>
     {
         #region Constructor
         public Heap(bool isMinHeap)
@@ -94,9 +94,9 @@ namespace CA.Algorithms.Implementations.BinaryTree
         }
         #endregion
 
-        private List<T> data = new List<T>();
+        protected List<T> data = new List<T>();
 
-        public void Insert(T item)
+        public virtual void Insert(T item)
         {
             data.Add(item);
 
@@ -122,7 +122,7 @@ namespace CA.Algorithms.Implementations.BinaryTree
             heapify(0);
         }
 
-        public T ExtractTop()
+        public virtual T ExtractTop()
         {
             if (data.Count <= 0)
             {
