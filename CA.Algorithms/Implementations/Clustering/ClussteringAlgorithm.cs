@@ -74,7 +74,11 @@ namespace CA.Algorithms.Implementations.Clustering
             var measure = new SpeedMeasure.Measure("Test");
 
             measure.StartMeasure();
-            foreach (var clusteringItemsDistance in new ClusteringItemsComparer().GetOrderedDistance(items))
+
+            //IClusteringItemComparer clusteringItemComparer = new ClusteringItemsComparer();
+            IClusteringItemComparer clusteringItemComparer = new ClusteringItemsComparerDictionary();
+
+            foreach (var clusteringItemsDistance in clusteringItemComparer.GetOrderedDistance(items))
             {
                 var leader1 = unionFind.GetClusterId(clusteringItemsDistance.Start).Value;
                 var leader2 = unionFind.GetClusterId(clusteringItemsDistance.End).Value;

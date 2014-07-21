@@ -6,7 +6,7 @@ using CA.Algorithms.Data.Clustering;
 
 namespace CA.Algorithms.Implementations.Clustering
 {
-    public class ClusteringItemsComparer
+    public class ClusteringItemsComparer : IClusteringItemComparer
     {
         public IEnumerable<ClusterItemsDistance> GetOrderedDistance(ClusteringItem[] items)
         {

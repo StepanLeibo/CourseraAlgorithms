@@ -92,6 +92,8 @@
     <Compile Include="Implementations\BinaryTree\Heap.cs" />
     <Compile Include="Implementations\Clustering\ClussteringAlgorithm.cs" />
     <Compile Include="Implementations\Clustering\ClusteringItemsComparer.cs" />
+    <Compile Include="Implementations\Clustering\ClusteringItemsComparerDictionary.cs" />
+    <Compile Include="Implementations\Clustering\IClusteringItemComparer.cs" />
     <Compile Include="Implementations\MedianMaintenance\MedianMaintenanceAlgorith.cs" />
     <Compile Include="Implementations\PrimMst\PrimAlgorithm.cs" />
     <Compile Include="Implementations\SccKosaraju\SccAlgorithm.cs" />
