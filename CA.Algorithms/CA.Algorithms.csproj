@@ -43,6 +43,15 @@
     <Compile Include="Data\2Sum\Get2SumDataFs.cs" />
     <Compile Include="Data\2Sum\Get2SumDataTest.cs" />
     <Compile Include="Data\2Sum\IGet2SumData.cs" />
+    <Compile Include="Data\Clustering\ClusterItemsDistance.cs" />
+    <Compile Include="Data\Clustering\ClusteringData.cs" />
+    <Compile Include="Data\Clustering\ClusteringDataBig.cs" />
+    <Compile Include="Data\Clustering\ClusteringItem.cs" />
+    <Compile Include="Data\Clustering\EdgeKruskal.cs" />
+    <Compile Include="Data\Clustering\GraphKruskal.cs" />
+    <Compile Include="Data\Clustering\IClusteringBigData.cs" />
+    <Compile Include="Data\Clustering\IClusteringData.cs" />
+    <Compile Include="Data\Clustering\VertextKruskal.cs" />
     <Compile Include="Data\MedianMaintenance\GetMedianMaintenanceDataFs.cs" />
     <Compile Include="Data\MedianMaintenance\GetMedianMaintenanceDataTest.cs" />
     <Compile Include="Data\MedianMaintenance\IGetMedianMaintenanceData.cs" />
@@ -75,10 +84,14 @@
     <Compile Include="Data\ShortestPathDijkstra\GetListVertecesFS.cs" />
     <Compile Include="Data\ShortestPathDijkstra\GetListVertecesTest.cs" />
     <Compile Include="Data\ShortestPathDijkstra\IGetListVertexes.cs" />
+    <Compile Include="Data\UnionFind\IUnionFindId.cs" />
+    <Compile Include="Data\UnionFind\UnionFind.cs" />
     <Compile Include="Implementations\2Sum\SumHash.cs" />
     <Compile Include="Implementations\2Sum\I2SumAlgorithm.cs" />
     <Compile Include="Implementations\2Sum\SumNativeSolution.cs" />
     <Compile Include="Implementations\BinaryTree\Heap.cs" />
+    <Compile Include="Implementations\Clustering\ClussteringAlgorithm.cs" />
+    <Compile Include="Implementations\Clustering\ClusteringItemsComparer.cs" />
     <Compile Include="Implementations\MedianMaintenance\MedianMaintenanceAlgorith.cs" />
     <Compile Include="Implementations\PrimMst\PrimAlgorithm.cs" />
     <Compile Include="Implementations\SccKosaraju\SccAlgorithm.cs" />
@@ -98,6 +111,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\2Sum\HashInt.txt" />
+    <Content Include="Data\Clustering\clustering1.txt" />
+    <Content Include="Data\Clustering\clusteringbigtest.txt" />
+    <Content Include="Data\Clustering\ClusteringTest.txt" />
+    <Content Include="Data\Clustering\clustering_big.txt" />
     <Content Include="Data\KargerMinCut\kargerMinCut.txt" />
     <Content Include="Data\MedianMaintenance\Median.txt" />
     <Content Include="Data\MergeSort\IntegerArray.txt" />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
+using CA.Algorithms.Data.Clustering;
 using CA.Algorithms.Data.KargerMinCut;
 using CA.Algorithms.Data.KargerMinCut.Domain;
 using CA.Algorithms.Data.MedianMaintenance;
@@ -13,6 +14,7 @@ using CA.Algorithms.Data.SccKosaraju;
 using CA.Algorithms.Data.SchedulingProblem;
 using CA.Algorithms.Data.ShortestPathDijkstra;
 using CA.Algorithms.Data._2Sum;
+using CA.Algorithms.Implementations.Clustering;
 using CA.Algorithms.Implementations.KargerMinKut;
 using CA.Algorithms.Implementations.MedianMaintenance;
 using CA.Algorithms.Implementations.MergeSort;
@@ -41,8 +43,10 @@ namespace CA.ConsoleApp
             //StronglyConnectedComponent();
             //SumAlgorithm();
             //MedianMaintenance();
-            SchedulingProblem();
+            //SchedulingProblem();
             //PrimMst();
+            //Clustering1();
+            ClusteringBig();
         }
 
         public static void QuickSort()
@@ -196,6 +200,26 @@ namespace CA.ConsoleApp
 
             var vertexPrims = dataManager.GetData();
             Console.WriteLine(primAlgorithm.PathLength(vertexPrims));
+        }
+
+        private static void Clustering1()
+        {
+            var dataManager = Ninj.Get<IClusteringData>();
+
+            var clusteringAlgo = new ClussteringAlgorithm();
+
+            //106
+            clusteringAlgo.GetSpacing(dataManager.GetGraph(), 4);
+        }
+
+        private static void ClusteringBig()
+        {
+            var dataManager = Ninj.Get<IClusteringBigData>();
+
+            var clusteringAlgo = new ClussteringAlgorithm();
+
+            var clusteringItems = dataManager.GetData();
+            Console.WriteLine(clusteringAlgo.GetClustersNumber(clusteringItems));
         }
     }
 }

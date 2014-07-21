@@ -1,4 +1,5 @@
-﻿using CA.Algorithms.Data.KargerMinCut;
+﻿using CA.Algorithms.Data.Clustering;
+using CA.Algorithms.Data.KargerMinCut;
 using CA.Algorithms.Data.MedianMaintenance;
 using CA.Algorithms.Data.MergeSort;
 using CA.Algorithms.Data.PrimMst;
@@ -95,6 +96,18 @@ namespace CA.DI
             #region Prim MST
 
             NinjectKernel.Bind<IGetPrimMstData>().To<GetPrimMstDataFs>();
+
+            #endregion
+
+            #region Clustering
+
+            NinjectKernel.Bind<IClusteringData>().To<ClusteringData>();
+
+            #endregion
+
+            #region ClusteringBig
+
+            NinjectKernel.Bind<IClusteringBigData>().To<ClusteringDataBig>();
 
             #endregion
         }
