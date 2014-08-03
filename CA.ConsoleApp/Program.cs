@@ -6,6 +6,7 @@ using System.Threading;
 using CA.Algorithms.Data.Clustering;
 using CA.Algorithms.Data.KargerMinCut;
 using CA.Algorithms.Data.KargerMinCut.Domain;
+using CA.Algorithms.Data.Knapsack;
 using CA.Algorithms.Data.MedianMaintenance;
 using CA.Algorithms.Data.MergeSort;
 using CA.Algorithms.Data.PrimMst;
@@ -16,6 +17,7 @@ using CA.Algorithms.Data.ShortestPathDijkstra;
 using CA.Algorithms.Data._2Sum;
 using CA.Algorithms.Implementations.Clustering;
 using CA.Algorithms.Implementations.KargerMinKut;
+using CA.Algorithms.Implementations.Knapsack;
 using CA.Algorithms.Implementations.MedianMaintenance;
 using CA.Algorithms.Implementations.MergeSort;
 using CA.Algorithms.Implementations.PrimMst;
@@ -46,7 +48,9 @@ namespace CA.ConsoleApp
             //SchedulingProblem();
             //PrimMst();
             //Clustering1();
-            ClusteringBig();
+            //ClusteringBig();
+            //Knapsack();
+            KnapsackBig();
         }
 
         public static void QuickSort()
@@ -219,7 +223,34 @@ namespace CA.ConsoleApp
             var clusteringAlgo = new ClussteringAlgorithm();
 
             var clusteringItems = dataManager.GetData();
+            //6118
             Console.WriteLine(clusteringAlgo.GetClustersNumber(clusteringItems));
+        }
+
+        private static void Knapsack()
+        {
+            var dataManager = Ninj.Get<IKnapsackDataManager>();
+
+            var knapsackAlgo = new KnapsackAlgorithm();
+
+            var data = dataManager.GetData();
+            //2493893
+            Console.WriteLine(knapsackAlgo.SolutionValue(data));
+        }
+
+        private static void KnapsackBig()
+        {
+            var dataManager = Ninj.Get<IKnapsackDataManager>();
+
+            var knapsackAlgo = new KnapsackBigAlgorithm();
+
+            var data = dataManager.GetData();
+
+            var measure = new Measure("Knapsack Total");
+            measure.StartMeasure();
+            //4243395
+            knapsackAlgo.SolutionValue(data);
+            measure.StopMeasureDisplay();
         }
     }
 }

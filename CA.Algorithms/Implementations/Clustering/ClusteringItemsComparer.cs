@@ -12,11 +12,11 @@ namespace CA.Algorithms.Implementations.Clustering
         {
             for (int targetDistance = 1; targetDistance < 3; targetDistance++)
             {
-                //var measure1 = new SpeedMeasure.Measure("Second1000");
-                //measure1.StartMeasure();
+                var measure1 = new SpeedMeasure.Measure("Second1000");
+                measure1.StartMeasure();
                 int first = 0;
                 int second = 1;
-                while (first < items.Length)
+                while (first < items.Length - 1)
                 {
                    
                         //var distance = GetDistance(items[first].ItemData, items[second].ItemData, targetDistance);
@@ -27,11 +27,11 @@ namespace CA.Algorithms.Implementations.Clustering
                         }
 
 
-                        //if (first != 0 && first % 1000 == 0 && second == first+1)
-                        //{
-                        //    Console.WriteLine(first);
-                        //    measure1.StopMeasureDisplay();
-                        //}
+                        if (first != 0 && first % 1000 == 0 && second == first + 1)
+                        {
+                            Console.WriteLine(first);
+                            measure1.StopMeasureDisplay();
+                        }
 
                     second++;
                     if (second == items.Length)

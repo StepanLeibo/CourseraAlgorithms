@@ -52,6 +52,10 @@
     <Compile Include="Data\Clustering\IClusteringBigData.cs" />
     <Compile Include="Data\Clustering\IClusteringData.cs" />
     <Compile Include="Data\Clustering\VertextKruskal.cs" />
+    <Compile Include="Data\Knapsack\IKnapsackDataManager.cs" />
+    <Compile Include="Data\Knapsack\KnapsackData.cs" />
+    <Compile Include="Data\Knapsack\KnapsackDataManager.cs" />
+    <Compile Include="Data\Knapsack\KnapsackItem.cs" />
     <Compile Include="Data\MedianMaintenance\GetMedianMaintenanceDataFs.cs" />
     <Compile Include="Data\MedianMaintenance\GetMedianMaintenanceDataTest.cs" />
     <Compile Include="Data\MedianMaintenance\IGetMedianMaintenanceData.cs" />
@@ -94,6 +98,8 @@
     <Compile Include="Implementations\Clustering\ClusteringItemsComparer.cs" />
     <Compile Include="Implementations\Clustering\ClusteringItemsComparerDictionary.cs" />
     <Compile Include="Implementations\Clustering\IClusteringItemComparer.cs" />
+    <Compile Include="Implementations\Knapsack\KnapsackAlgorithm.cs" />
+    <Compile Include="Implementations\Knapsack\KnapsackBigAlgorithm.cs" />
     <Compile Include="Implementations\MedianMaintenance\MedianMaintenanceAlgorith.cs" />
     <Compile Include="Implementations\PrimMst\PrimAlgorithm.cs" />
     <Compile Include="Implementations\SccKosaraju\SccAlgorithm.cs" />
@@ -118,6 +124,8 @@
     <Content Include="Data\Clustering\ClusteringTest.txt" />
     <Content Include="Data\Clustering\clustering_big.txt" />
     <Content Include="Data\KargerMinCut\kargerMinCut.txt" />
+    <Content Include="Data\Knapsack\knapsack1.txt" />
+    <Content Include="Data\Knapsack\knapsackTestData.txt" />
     <Content Include="Data\MedianMaintenance\Median.txt" />
     <Content Include="Data\MergeSort\IntegerArray.txt" />
     <Content Include="Data\PrimMst\edges.txt" />

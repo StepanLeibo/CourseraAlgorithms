@@ -1,5 +1,6 @@
 ﻿using CA.Algorithms.Data.Clustering;
 using CA.Algorithms.Data.KargerMinCut;
+using CA.Algorithms.Data.Knapsack;
 using CA.Algorithms.Data.MedianMaintenance;
 using CA.Algorithms.Data.MergeSort;
 using CA.Algorithms.Data.PrimMst;
@@ -108,6 +109,12 @@ namespace CA.DI
             #region ClusteringBig
 
             NinjectKernel.Bind<IClusteringBigData>().To<ClusteringDataBig>();
+
+            #endregion
+
+            #region Knapsack
+
+            NinjectKernel.Bind<IKnapsackDataManager>().To<KnapsackDataManager>();
 
             #endregion
         }
