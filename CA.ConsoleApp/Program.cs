@@ -14,6 +14,7 @@ using CA.Algorithms.Data.QuickSort;
 using CA.Algorithms.Data.SccKosaraju;
 using CA.Algorithms.Data.SchedulingProblem;
 using CA.Algorithms.Data.ShortestPathDijkstra;
+using CA.Algorithms.Data.TSP;
 using CA.Algorithms.Data._2Sum;
 using CA.Algorithms.Implementations.Clustering;
 using CA.Algorithms.Implementations.KargerMinKut;
@@ -25,6 +26,7 @@ using CA.Algorithms.Implementations.QuickSort;
 using CA.Algorithms.Implementations.SccKosaraju;
 using CA.Algorithms.Implementations.SchedulingProblem;
 using CA.Algorithms.Implementations.ShortestPathDijkstra;
+using CA.Algorithms.Implementations.TSP;
 using CA.Algorithms.Implementations._2Sum;
 using CA.DI;
 using Ninject;
@@ -50,7 +52,8 @@ namespace CA.ConsoleApp
             //Clustering1();
             //ClusteringBig();
             //Knapsack();
-            KnapsackBig();
+            //KnapsackBig();
+            Tsp();
         }
 
         public static void QuickSort()
@@ -251,6 +254,27 @@ namespace CA.ConsoleApp
             //4243395
             knapsackAlgo.SolutionValue(data);
             measure.StopMeasureDisplay();
+        }
+
+        private static void Tsp()
+        {
+            var dataManager = Ninj.Get<IGetListVerticesTsp>();
+            new TspAlgorithm().ShortestPathLength(dataManager.GetList());
+
+            //var tspAlgorithm = new TspAlgorithm();
+
+            // const int stackSize = 1377721600;
+
+            //tspAlgorithm.ShortestPathLength(dataManager.GetList());
+
+            //var tspBigData = new TspBigDataAlgorithm();
+
+            // tspBigData.ShortestPathLength(dataManager.GetList());
+
+            //var thread = new Thread(() => tspAlgorithm.ShortestPathLength(dataManager.GetList()), stackSize);
+
+            //thread.Start();
+            // tspAlgorithm.ShortestPathLength(dataManager.GetList());
         }
     }
 }

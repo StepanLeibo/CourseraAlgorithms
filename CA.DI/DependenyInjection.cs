@@ -8,6 +8,7 @@ using CA.Algorithms.Data.QuickSort;
 using CA.Algorithms.Data.SccKosaraju;
 using CA.Algorithms.Data.SchedulingProblem;
 using CA.Algorithms.Data.ShortestPathDijkstra;
+using CA.Algorithms.Data.TSP;
 using CA.Algorithms.Data._2Sum;
 using CA.Algorithms.Implementations.MedianMaintenance;
 using CA.Algorithms.Implementations.MergeSort;
@@ -115,6 +116,12 @@ namespace CA.DI
             #region Knapsack
 
             NinjectKernel.Bind<IKnapsackDataManager>().To<KnapsackDataManager>();
+
+            #endregion
+
+            #region TSP
+
+            NinjectKernel.Bind<IGetListVerticesTsp>().To<GetListVerticesTsp>();
 
             #endregion
         }

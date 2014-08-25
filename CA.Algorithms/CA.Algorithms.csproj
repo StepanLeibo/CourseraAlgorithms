@@ -88,6 +88,11 @@
     <Compile Include="Data\ShortestPathDijkstra\GetListVertecesFS.cs" />
     <Compile Include="Data\ShortestPathDijkstra\GetListVertecesTest.cs" />
     <Compile Include="Data\ShortestPathDijkstra\IGetListVertexes.cs" />
+    <Compile Include="Data\TSP\BigArray.cs" />
+    <Compile Include="Data\TSP\GetListVerticesTsp.cs" />
+    <Compile Include="Data\TSP\IGetListVerticesTsp.cs" />
+    <Compile Include="Data\TSP\TspBigDataAlgorithm.cs" />
+    <Compile Include="Data\TSP\VertexTSP.cs" />
     <Compile Include="Data\UnionFind\IUnionFindId.cs" />
     <Compile Include="Data\UnionFind\UnionFind.cs" />
     <Compile Include="Implementations\2Sum\SumHash.cs" />
@@ -115,6 +120,7 @@
     <Compile Include="Implementations\SchedulingProblem\SchedulingDivision.cs" />
     <Compile Include="Implementations\SchedulingProblem\SchedulingSubstraction.cs" />
     <Compile Include="Implementations\ShortestPathDijkstra\Dijkstra.cs" />
+    <Compile Include="Implementations\TSP\TspAlgorithm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +141,7 @@
     <Content Include="Data\SchedulingProblem\jobs.txt" />
     <Content Include="Data\SchedulingProblem\jobsTest.txt" />
     <Content Include="Data\ShortestPathDijkstra\dijkstraData.txt" />
+    <Content Include="Data\TSP\tsp.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpeedMeasure\SpeedMeasure.csproj">
